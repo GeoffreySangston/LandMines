@@ -18,9 +18,11 @@ InputHandler.prototype.listen = function(){
 	
 	this.gameContainer.addEventListener('mousedown', function(e){
 			e.preventDefault();
-	
-			clickStartX = e.x - self.gameContainer.offsetLeft;
-			clickStartY = e.y - self.gameContainer.offsetTop;
+			
+			var x = e.x || e.clientX;
+			var y = e.y || e.clientY;
+			clickStartX = x - self.gameContainer.offsetLeft;
+			clickStartY = y - self.gameContainer.offsetTop;
 			mouseClickedInGame = true;
 			
 			var data = {
@@ -40,8 +42,10 @@ InputHandler.prototype.listen = function(){
 		if(mouseClickedInGame){
 			mouseClickedInGame = false;
 				
-			var clickEndX = e.x - self.gameContainer.offsetLeft;
-			var clickEndY = e.y - self.gameContainer.offsetTop;
+			var x = e.x || e.clientX;
+			var y = e.y || e.clientY;
+			var clickEndX = x - self.gameContainer.offsetLeft;
+			var clickEndY = y - self.gameContainer.offsetTop;
 				
 			var data = {
 					mouse : {x: clickEndX, y: clickEndY}, 
