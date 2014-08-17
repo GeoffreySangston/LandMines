@@ -1,0 +1,2 @@
+var GAMEWIDTH = 300;
+var GAMEHEIGHT = 300;
